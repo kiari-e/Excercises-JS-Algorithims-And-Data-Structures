@@ -9,15 +9,27 @@
   swapping their places if the smaller index's value is larger than the larger
   index's. Continue looping through until all values are in ascending order
 */
+function bubbleSort(nums){
+  let swapped = false;
+  do{
+  swapped =false;
 
-function bubbleSort(nums) {
-  // code goes here
+for (let b = 0; b <= nums.length; b++ ){
+  if(nums[b] > nums[b + 1]){
+    let temp = nums[b];
+    nums[b] = nums[b + 1];
+    nums[b + 1] = temp;
+    swapped = true;
+     }
+}
+ } while(swapped)
+ return nums;
 }
 
-// unit tests
-// do not modify the below code
-test.skip("bubble sort", function () {
+test("bubble sort", function () {
   const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
   const sortedNums = bubbleSort(nums);
   expect(sortedNums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
+
+
